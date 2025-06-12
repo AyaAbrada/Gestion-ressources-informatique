@@ -1,6 +1,7 @@
 package com.example.gestionressourcesinformatiques.Entities;
 
-public class Role {
+
+public enum Role {
     UTILISATEUR,
     TECHNICIEN
 }

@@ -26,5 +26,71 @@ public class Ticket {
 
     private String titre;
     private LocalDate dateCreation;
-    private String statut;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Utilisateur getTechnicien() {
+        return technicien;
+    }
+
+    public void setTechnicien(Utilisateur technicien) {
+        this.technicien = technicien;
+    }
+
+    public Utilisateur getUtilisateur() {
+        return utilisateur;
+    }
+
+    public void setUtilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
+    }
+
+    public Equipement getEquipement() {
+        return equipement;
+    }
+
+    public void setEquipement(Equipement equipement) {
+        this.equipement = equipement;
+    }
+
+    public StatutTicket getStatut() {
+        return statut;
+    }
+
+    public void setStatut(StatutTicket statut) {
+        this.statut = statut;
+    }
+
+    public String getTitre() {
+        return titre;
+    }
+
+    public void setTitre(String titre) {
+        this.titre = titre;
+    }
+
+    public LocalDate getDateCreation() {
+        return dateCreation;
+    }
+
+    public void setDateCreation(LocalDate dateCreation) {
+        this.dateCreation = dateCreation;
+    }
+
+    public Ticket(long id, Utilisateur utilisateur, Utilisateur technicien, Equipement equipement, StatutTicket statut, String titre, LocalDate dateCreation) {
+        this.id = id;
+        this.utilisateur = utilisateur;
+        this.technicien = technicien;
+        this.equipement = equipement;
+        this.statut = statut;
+        this.titre = titre;
+        this.dateCreation = dateCreation;
+    }
+    public Ticket() {}
 }
