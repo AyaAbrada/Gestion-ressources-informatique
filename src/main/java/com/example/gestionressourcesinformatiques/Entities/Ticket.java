@@ -21,6 +21,9 @@ public class Ticket {
     @JoinColumn(name = "equipement_id")
     private Equipement equipement; // équipement concerné
 
+    @Enumerated(EnumType.STRING)
+    private StatutTicket statut; // NOUVEAU, EN_COURS, RESOLU
+
     private String titre;
     private LocalDate dateCreation;
     private String statut;

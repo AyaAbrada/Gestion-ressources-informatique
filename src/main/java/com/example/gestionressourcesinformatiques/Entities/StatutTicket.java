@@ -1,7 +1,8 @@
 package com.example.gestionressourcesinformatiques.Entities;
 
-public class Role {
-    UTILISATEUR,
-    TECHNICIEN
+public enum StatutTicket {
+    NOUVEAU,
+    EN_COURS,
+    RESOLU
 }
 
