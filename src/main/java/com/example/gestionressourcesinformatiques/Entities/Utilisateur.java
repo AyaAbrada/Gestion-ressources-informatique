@@ -1,9 +1,18 @@
 package com.example.gestionressourcesinformatiques.Entities;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
+
+import jakarta.persistence.*;
+
+
+import java.util.List;
+
+@Entity
 
 public class Utilisateur {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     private String fullName;
     private String username;
     private String password;
@@ -11,36 +20,22 @@ public class Utilisateur {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    public long getId() {
-        return id;
-    }
+    // Tickets créés par l'utilisateur (s'il est un utilisateur simple)
+    @OneToMany(mappedBy = "utilisateur")
+    private List<Ticket> ticketsCrees;
 
-    public void setId(long id) {
+    // Tickets assignés au technicien
+    @OneToMany(mappedBy = "technicien")
+    private List<Ticket> ticketsAssignes;
+
+    public Utilisateur() {}
+
+    public Utilisateur(long id, String fullName, String username, String password, Role role) {
         this.id = id;
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(String fullName) {
         this.fullName = fullName;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
         this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
         this.password = password;
+        this.role = role;
     }
 
     public Role getRole() {
@@ -50,12 +45,10 @@ public class Utilisateur {
     public void setRole(Role role) {
         this.role = role;
     }
-
-    public Utilisateur(long id, String fullName, String username, String password, Role role) {
+    public long getId() {
+        return id;
+    }
+    public void setId(long id) {
         this.id = id;
-        this.fullName = fullName;
-        this.username = username;
-        this.password = password;
-        this.role = role;
     }
 }
